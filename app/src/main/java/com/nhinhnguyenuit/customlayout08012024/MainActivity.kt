@@ -1,13 +1,17 @@
 package com.nhinhnguyenuit.customlayout08012024
 
+import android.graphics.Color
 import android.os.Bundle
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.IntegerRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import kotlin.random.Random
@@ -17,6 +21,8 @@ class MainActivity : AppCompatActivity() {
     private var editTextNum2: EditText? = null
     private var btnName: Button? = null
     private var txtNumber: TextView? = null
+    private var imageViewAvatar : ImageView? = null
+    private var screen: ConstraintLayout? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -29,12 +35,15 @@ class MainActivity : AppCompatActivity() {
         editTextNum1 = findViewById(R.id.edtSo1)
         editTextNum2 = findViewById(R.id.edtSo2)
         btnName = findViewById(R.id.btnName)
-        txtNumber = findViewById<TextView>(R.id.txtNum)
+        txtNumber = findViewById(R.id.txtNum)
+        imageViewAvatar = findViewById(R.id.imgAvatar)
+        screen = findViewById(R.id.main)
 
+        screen?.setBackgroundColor(Color.rgb(10,50,100))
         btnName?.setOnClickListener {
             val str1 = editTextNum1?.text.toString()
             val str2 = editTextNum2?.text.toString()
-
+            imageViewAvatar?.setImageResource(R.drawable.avatar)
             if (str1.isEmpty() || str2.isEmpty()) {
                 Toast.makeText(this, "Please input number", Toast.LENGTH_SHORT).show()
             } else {
@@ -49,5 +58,9 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
+    }
+
+    fun sayHi(view: View) {
+        Toast.makeText(this,"ImageButton Was Press", Toast.LENGTH_SHORT).show()
     }
 }
