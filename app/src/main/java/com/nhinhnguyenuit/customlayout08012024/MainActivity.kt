@@ -39,11 +39,20 @@ class MainActivity : AppCompatActivity() {
         imageViewAvatar = findViewById(R.id.imgAvatar)
         screen = findViewById(R.id.main)
 
-        screen?.setBackgroundColor(Color.rgb(10,50,100))
+        val listAvatar = ArrayList<Int>()
+        listAvatar.add(R.drawable.avatar1)
+        listAvatar.add(R.drawable.avatar2)
+        listAvatar.add(R.drawable.avatar3)
+
+
+//        screen?.setBackgroundColor(Color.rgb(10,50,100))
         btnName?.setOnClickListener {
             val str1 = editTextNum1?.text.toString()
             val str2 = editTextNum2?.text.toString()
+            val index = Random.nextInt(listAvatar.size)
             imageViewAvatar?.setImageResource(R.drawable.avatar)
+            screen?.setBackgroundResource(listAvatar[index])
+            Toast.makeText(this, index.toString(), Toast.LENGTH_SHORT).show()
             if (str1.isEmpty() || str2.isEmpty()) {
                 Toast.makeText(this, "Please input number", Toast.LENGTH_SHORT).show()
             } else {
