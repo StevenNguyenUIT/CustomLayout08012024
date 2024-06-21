@@ -13,8 +13,8 @@ import androidx.core.view.WindowInsetsCompat
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
-    private var editTextNum1 : EditText? = null
-    private var editTextNum2 : EditText? = null
+    private var editTextNum1: EditText? = null
+    private var editTextNum2: EditText? = null
     private var btnName: Button? = null
     private var txtNumber: TextView? = null
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,21 +26,28 @@ class MainActivity : AppCompatActivity() {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
-        editTextNum1 =  findViewById(R.id.edtSo1)
-        editTextNum2 =  findViewById(R.id.edtSo2)
+        editTextNum1 = findViewById(R.id.edtSo1)
+        editTextNum2 = findViewById(R.id.edtSo2)
         btnName = findViewById(R.id.btnName)
         txtNumber = findViewById<TextView>(R.id.txtNum)
 
-        btnName?.setOnClickListener{
+        btnName?.setOnClickListener {
             val str1 = editTextNum1?.text.toString()
             val str2 = editTextNum2?.text.toString()
-            val min = if (str1.isEmpty()) 0 else str1.toInt()
-            val max = if (str2.isEmpty()) 1 else str2.toInt()
-            if (min < max){
-                txtNumber?.text = (Random.nextInt(max-min + 1) + min).toString()
+
+            if (str1.isEmpty() || str2.isEmpty()) {
+                Toast.makeText(this, "Please input number", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(this, "Min need lower Max", Toast.LENGTH_SHORT).show()
+                val min = str1.toInt()
+                val max = str2.toInt()
+
+                if (min < max) {
+                    txtNumber?.text = Random.nextInt(min, max).toString()
+                } else {
+                    Toast.makeText(this, "Min need lower Max", Toast.LENGTH_SHORT).show()
+                }
             }
+
         }
     }
 }
