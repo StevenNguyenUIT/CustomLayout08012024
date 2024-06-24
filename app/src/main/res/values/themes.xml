@@ -6,4 +6,15 @@
     </style>
 
     <style name="Theme.CustomLayout08012024" parent="Base.Theme.CustomLayout08012024" />
+
+    <style name="RatingBarStyle1" parent="Widget.AppCompat.RatingBar">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="background">@color/black</item>
+        <item name="android:numStars">10</item>
+    </style>
+
+    <style name="RatingBarStyle2" parent="RatingBarStyle1">
+        <item name="android:numStars">2</item>
+    </style>
 </resources>
