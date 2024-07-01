@@ -31,7 +31,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/imageViewIconModule"
+                    android:id="@+id/imageIcon"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@drawable/bg_circle_icon"
@@ -45,13 +45,13 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toStartOf="@id/imageNext"
+                app:layout_constraintEnd_toStartOf="@id/imageTrailingIcon"
                 app:layout_constraintHorizontal_weight="7"
                 app:layout_constraintStart_toEndOf="@id/relativeIcon"
                 app:layout_constraintTop_toTopOf="parent">
 
                 <TextView
-                    android:id="@+id/textViewTitleModule"
+                    android:id="@+id/textViewTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="@color/black"
@@ -60,7 +60,7 @@
                     tools:text="Address" />
 
                 <TextView
-                    android:id="@+id/textViewDescriptionModule"
+                    android:id="@+id/textViewSubTitle"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#AEA8A7"
@@ -71,7 +71,7 @@
 
             <ImageView
 
-                android:id="@+id/imageNext"
+                android:id="@+id/imageTrailingIcon"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_next"
